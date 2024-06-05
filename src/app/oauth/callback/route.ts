@@ -17,11 +17,11 @@ export async function GET(request: Request & NextRequest) {
   const code = searchParams.get('code') as string
 
   const { grantId } = await nylas.auth.exchangeCodeForToken({ 
-    // clientSecret: process.env.NYLAS_API_KEY,
+    
     clientId: process.env.NYLAS_CLIENT_ID,
     code,
     redirectUri: process.env.NYLAS_REDIRECT_URI,
-    // @ts-ignore
+    
     codeVerifier: secret
   })
 

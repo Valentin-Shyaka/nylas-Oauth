@@ -15,7 +15,7 @@ export async function GET(request: Request) {
     clientId: process.env.NYLAS_CLIENT_ID,
     provider: 'google',
     redirectUri: process.env.NYLAS_REDIRECT_URI,
-    loginHint: 'user-email-to-connect',
+    loginHint: 'vava1lantern7@gmail.com',
   })
 
   cookieStore.set('nylas_code_challenge', data.secretHash)
