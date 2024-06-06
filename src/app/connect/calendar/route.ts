@@ -12,10 +12,10 @@ export async function GET(request: Request) {
   const cookieStore = cookies()
 
   const data = nylas.auth.urlForOAuth2PKCE({
-    clientId: '453995621555-6hqanqi6rp14b2jp5si1pda1qh9h2lua.apps.googleusercontent.com',
-    provider: 'google',
-    redirectUri: 'https://nylas-oauth.vercel.app/',
-    loginHint: 'vava1lantern7@gmail.com',
+    clientId:'689134666959-3ib6ihtalmdmivi4hmatoefba50a5duk.apps.googleusercontent.com',
+    provider:'google',
+    redirectUri:'https://api.eu.nylas.com/v3/connect/callback',
+    loginHint:'example@gmail.com',
   })
 
   cookieStore.set('nylas_code_challenge', data.secretHash)
