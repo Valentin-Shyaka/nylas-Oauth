@@ -19,7 +19,23 @@ export async function GET(request: Request) {
     
   })
 
+
   cookieStore.set('nylas_code_challenge', data.secretHash)
 
-  return Response.redirect(data.url)
+  const token = cookieStore.get('nylas_code_challenge')
+
+  console.log('Token:', token)
+
+  const headers = {
+    'Content-Type': 'application/json',
+    'Authorization': `Bearer ${token}` 
+    // Add any other headers you need
+  }
+
+  const newRequest = new Request(data.url, {
+    method: 'GET',
+    headers: new Headers(headers),
+  })
+
+  return fetch(newRequest)
 }

@@ -28,5 +28,5 @@ export async function GET(request: Request & NextRequest) {
   cookieStore.set('nylas_user_grant_id', grantId)
 
   // return Response.json({ grantId })
-  return Response.redirect('http://localhost:3000')
+  return Response.redirect('http://localhost:3000/')
 }
