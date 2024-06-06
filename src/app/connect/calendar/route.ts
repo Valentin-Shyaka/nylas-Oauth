@@ -22,13 +22,16 @@ export async function GET(request: Request) {
 
   cookieStore.set('nylas_code_challenge', data.secretHash)
 
+  console.log(data.url)
   const token = cookieStore.get('nylas_code_challenge')
+
+  const encodedToken = btoa(token + ":");
 
   console.log('Token:', token)
 
   const headers = {
     'Content-Type': 'application/json',
-    'Authorization': `Bearer ${token}` 
+    'Authorization': `Basic ${encodedToken}` 
     // Add any other headers you need
   }
 
